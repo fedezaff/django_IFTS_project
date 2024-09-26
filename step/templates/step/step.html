@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'step/style.css' %}">
+
+</head>
+<body>
+    <nav class="container-fluid barra_navigazione text-center">
+        <div class="row justify-content-between">
+            <div class="col-4 logo"></div>
+            <div class="col-4">
+                <a href="">
+                    <div class="login_aziende_button">LOGIN AZIENDE</div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-xl">
+        <div class="row justify-content-between">
+            {% for offer in Offertes %}
+                <div class="col-lg-4 col-sm-12">
+                    <a href="/offerta/{{offer.id_offerta}}">
+                        <div class="offer_box">
+                            <h2>{{offer.titolo}}</h2>
+                            {% for singola in Azienda %}
+                                {% if offer.id_azienda == singola.id_azienda %}
+                                    <p>{{singola.azienda}}</p>
+                                {% endif %}
+                            {% endfor %}
+                            <p>{{offer.descrizione}}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
