@@ -4,13 +4,13 @@ body{
 
 .barra_navigazione{
     background-color: #48CFCB;
-    height: 120px;
+    height: 13vh;
     padding: 20px 20px 0;
 }
 
 .logo{
     background-image: url(White_logo_nobg.png);
-    height: 80px;
+    height: 8vh;
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: 20px;
@@ -30,5 +30,28 @@ body{
     background-color: #F5F5F5;
     margin: 20px 0;
     padding: 20px;
-    box-shadow: -5px 5px #0000002a;;
+    box-shadow: -5px 5px 10px #0000002a;;
+}
+
+a{
+    text-decoration: none;
+}
+
+h2{
+    color: #424242;
+}
+
+.link_azienda{
+    color: #229799;
+    font-weight: bold;
+}
+
+.text_offer{
+    margin-top: 7px;
+    color: #424242;
+    font-size: 18px;
+}
+
+li{
+    font-weight: bold;
 }
