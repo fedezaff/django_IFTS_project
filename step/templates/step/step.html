@@ -17,26 +17,24 @@
             </a>
         </div>
     </nav>
-
     <div class="container-xl">
         <div class="row justify-content-between">
             {% for offer in Offertes %}
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                    <a href="/offerta/{{offer.id_offerta}}">
-                        <div class="offer_box">
-                            <h2>{{offer.titolo}}</h2>
-                            {% for singola in Azienda %}
-                                {% if offer.id_azienda == singola.id_azienda %}
-                                    <a class="link_azienda" href="/azienda/{{singola.id_azienda}}">{{singola.azienda}}</a>
-                                {% endif %}
-                            {% endfor %}
-                            <p class="text_offer">{{offer.descrizione_breve}}</p>
-                        </div>
-                    </a>
+                    <div class="offer_box" onclick="window.location.href='/offerta/{{offer.id_offerta}}';" style="cursor: pointer;">
+                        <h2>{{offer.titolo}}</h2>
+                        {% for singola in Azienda %}
+                            {% if offer.id_azienda == singola.id_azienda %}
+                                <a class="link_azienda" href="/azienda/{{singola.id_azienda}}" onclick="event.stopPropagation();">{{singola.azienda}}</a>
+                            {% endif %}
+                        {% endfor %}
+                        <p class="text_offer">{{offer.descrizione_breve}}</p>
+                    </div>
                 </div>
             {% endfor %}
         </div>
     </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
